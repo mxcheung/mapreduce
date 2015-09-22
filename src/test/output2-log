@@ -1,0 +1,49 @@
+Sep 25, 2015 7:28:32 AM org.apache.hadoop.util.NativeCodeLoader <clinit>
+INFO: Loaded the native-hadoop library
+Sep 25, 2015 7:28:32 AM org.apache.hadoop.io.nativeio.NativeIO <clinit>
+SEVERE: Unable to initialize NativeIO libraries
+java.lang.NoClassDefFoundError: org/apache/hadoop/io/nativeio/NativeIO$POSIX$Stat
+	at org.apache.hadoop.io.nativeio.NativeIO.initNative(Native Method)
+	at org.apache.hadoop.io.nativeio.NativeIO.<clinit>(NativeIO.java:89)
+	at org.apache.hadoop.fs.FileUtil.setPermission(FileUtil.java:655)
+	at org.apache.hadoop.fs.RawLocalFileSystem.setPermission(RawLocalFileSystem.java:514)
+	at org.apache.hadoop.fs.RawLocalFileSystem.mkdirs(RawLocalFileSystem.java:349)
+	at org.apache.hadoop.fs.FilterFileSystem.mkdirs(FilterFileSystem.java:193)
+	at org.apache.hadoop.mapreduce.JobSubmissionFiles.getStagingDir(JobSubmissionFiles.java:126)
+	at org.apache.hadoop.mapred.JobClient$2.run(JobClient.java:942)
+	at org.apache.hadoop.mapred.JobClient$2.run(JobClient.java:936)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at javax.security.auth.Subject.doAs(Subject.java:422)
+	at org.apache.hadoop.security.UserGroupInformation.doAs(UserGroupInformation.java:1190)
+	at org.apache.hadoop.mapred.JobClient.submitJobInternal(JobClient.java:936)
+	at org.apache.hadoop.mapred.JobClient.submitJob(JobClient.java:910)
+	at org.apache.hadoop.mapred.JobClient.runJob(JobClient.java:1353)
+	at com.teradata.WordCount.main(WordCount.java:78)
+Caused by: java.lang.ClassNotFoundException: org.apache.hadoop.io.nativeio.NativeIO$POSIX$Stat
+	at java.net.URLClassLoader$1.run(URLClassLoader.java:372)
+	at java.net.URLClassLoader$1.run(URLClassLoader.java:361)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.net.URLClassLoader.findClass(URLClassLoader.java:360)
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:424)
+	at sun.misc.Launcher$AppClassLoader.loadClass(Launcher.java:308)
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:357)
+	... 16 more
+
+Sep 25, 2015 7:28:32 AM org.apache.hadoop.security.UserGroupInformation doAs
+SEVERE: PriviledgedActionException as:MAX cause:java.io.IOException: Failed to set permissions of path: D:\tmp\hadoop\mapred\staging\MAX177535570\.staging to 0700
+Exception in thread "main" java.io.IOException: Failed to set permissions of path: D:\tmp\hadoop\mapred\staging\MAX177535570\.staging to 0700
+	at org.apache.hadoop.fs.FileUtil.checkReturnValue(FileUtil.java:691)
+	at org.apache.hadoop.fs.FileUtil.setPermission(FileUtil.java:664)
+	at org.apache.hadoop.fs.RawLocalFileSystem.setPermission(RawLocalFileSystem.java:514)
+	at org.apache.hadoop.fs.RawLocalFileSystem.mkdirs(RawLocalFileSystem.java:349)
+	at org.apache.hadoop.fs.FilterFileSystem.mkdirs(FilterFileSystem.java:193)
+	at org.apache.hadoop.mapreduce.JobSubmissionFiles.getStagingDir(JobSubmissionFiles.java:126)
+	at org.apache.hadoop.mapred.JobClient$2.run(JobClient.java:942)
+	at org.apache.hadoop.mapred.JobClient$2.run(JobClient.java:936)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at javax.security.auth.Subject.doAs(Subject.java:422)
+	at org.apache.hadoop.security.UserGroupInformation.doAs(UserGroupInformation.java:1190)
+	at org.apache.hadoop.mapred.JobClient.submitJobInternal(JobClient.java:936)
+	at org.apache.hadoop.mapred.JobClient.submitJob(JobClient.java:910)
+	at org.apache.hadoop.mapred.JobClient.runJob(JobClient.java:1353)
+	at com.teradata.WordCount.main(WordCount.java:78)

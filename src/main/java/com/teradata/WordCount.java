@@ -70,6 +70,10 @@ public class WordCount {
 
 		FileInputFormat.setInputPaths(conf, new Path(args[0]));
 		FileOutputFormat.setOutputPath(conf, new Path(args[1]));
+//			FileInputFormat.setInputPaths(conf, new Path("D:\\tmp\\hadoop-MAX\\wordcount\\input\\"));
+//			FileOutputFormat.setOutputPath(conf, new Path("D:\\tmp\\hadoop-MAX\\wordcount\\output\\"));
+		//	FileInputFormat.setInputPaths(conf, new Path("D:/tmp/hadoop-MAX/wordcount/input/"));
+	//		FileOutputFormat.setOutputPath(conf, new Path("D:/tmp/hadoop-MAX/wordcount/output/"));
 
 		JobClient.runJob(conf);
 	}
